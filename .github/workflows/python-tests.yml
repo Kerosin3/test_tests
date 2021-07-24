@@ -10,7 +10,7 @@ on:
     branches: [ main ]
 
 jobs:
-  run-dull-test:
+  run-dull-tests:
 
     runs-on: ubuntu-latest
     strategy:
@@ -43,7 +43,7 @@ jobs:
         pytest -s -vv -rsx
 
   deploy:
-    needs: run-tests
+    needs: run-dull-tests
     runs-on: ubuntu-latest
     steps:
       - name: Send webhook
