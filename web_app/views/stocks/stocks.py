@@ -47,7 +47,7 @@ def main_page():
     return redirect(url)
 
 
-@stocks_app.route("/add/", methods=["GET", "POST"])
+@stocks_app.route("/add/", methods=["GET", "POST"],endpoint='add')
 def add_stock():
     if request.method == "GET":  # returning a template
         return render_template("stocks/add_stock.html")

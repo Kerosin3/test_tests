@@ -10,7 +10,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  run-dull-test:
 
     runs-on: ubuntu-latest
     strategy:
@@ -41,3 +41,10 @@ jobs:
     - name: Test with pytest
       run: |
         pytest -s -vv -rsx
+
+  deploy:
+    needs: run-tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send webhook
+        run: curl -X POST https://httpbin.org/post -H "x-workflow:$GITHUB_WORKFLOW"
