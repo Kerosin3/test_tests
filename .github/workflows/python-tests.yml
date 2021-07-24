@@ -41,6 +41,9 @@ jobs:
     - name: Test with pytest
       run: |
         pytest -s -vv -rsx
+    - name: run coverage
+      run: |
+        coverage run --source views -m pytest
 
   deploy:
     needs: run-dull-tests
