@@ -47,7 +47,7 @@ jobs:
     - name: run Coveralls
       run: coveralls --service=github
       env:
-        GITHUB_TOCKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   deploy:
     needs: run-dull-tests
