@@ -45,7 +45,7 @@ jobs:
       run: |
         coverage run --source tests/views -m pytest
     - name: run Coveralls
-      run: coverage --service=github
+      run: coveralls --service=github
       env:
         GITHUB_TOCKEN: ${{ secrets.GITHUB_TOCKEN }}
 
