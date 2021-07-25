@@ -44,6 +44,10 @@ jobs:
     - name: run coverage
       run: |
         coverage run --source tests/views -m pytest
+    - name: run Coveralls
+      run: coverage --service=github
+      env:
+        GITHUB_TOCKEN: ${{ secrets.GITHUB_TOCKEN }}
 
   deploy:
     needs: run-dull-tests
