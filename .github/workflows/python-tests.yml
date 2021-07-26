@@ -43,7 +43,7 @@ jobs:
         pytest -s -vv -rsx
     - name: run coverage
       run: |
-        coverage run --source web_app/views -m pytest
+        coverage run --source web_app/views,web_app/models -m pytest
     - name: run Coveralls
       run: coveralls --service=github
       env:
